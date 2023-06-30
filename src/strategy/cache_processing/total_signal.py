@@ -21,7 +21,6 @@ def add_total_signal(df, new_data_int_idx, new_data_dt_idx, max_candle_count, ti
         start_all_cross_down_idx = df[
             (new_data_dt_idx - df.index) / timeframe <= max_candle_count
         ].index.min()
-        logging.info(f'{start_all_cross_down_idx}, {new_data_dt_idx}')
         if pd.isnull(start_all_cross_down_idx) or start_all_cross_down_idx >= new_data_dt_idx:
             logging.warning('MACD cross down min index not found')
             return
